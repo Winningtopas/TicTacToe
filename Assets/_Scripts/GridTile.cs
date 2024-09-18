@@ -6,36 +6,35 @@ using UnityEngine.UI;
 
 public class GridTile
 {
-    public enum TileType { EMPTY, CROSS, CIRCLE }
-
     private Vector3Int position;
-    private TileType type;
+    private int tileOwner;
     private Image image;
 
     public Vector3Int Position => position;
-    public TileType Type => type;
+    public int TileOwner => tileOwner;
+
     public Image Image => image;
 
-    public GridTile(Vector3Int position, TileType type, Image image)
+    public GridTile(Vector3Int position, int tileOwner, Image image)
     {
         this.position = position;
-        this.type = type;
+        this.tileOwner = tileOwner;
         this.image = image;
     }
 
-    public void SetType(TileType type)
+    public void SetTileOwner(int tileOwner)
     {
-        this.type = type;
+        this.tileOwner = tileOwner;
 
-        switch (type)
+        switch (tileOwner)
         {
-            case TileType.EMPTY:
+            case -1:
                 image.color = Color.white;
                 break;
-            case TileType.CIRCLE:
+            case 0:
                 image.color = Color.red;
                 break;
-            case TileType.CROSS:
+            case 1:
                 image.color = Color.green;
                 break;
         }

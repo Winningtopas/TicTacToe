@@ -5,18 +5,23 @@ using UnityEngine.UI;
 
 public class GridManager : MonoBehaviour
 {
+    //References
+    private TurnManager turnManager;
+
+    //Variables
     [SerializeField]
-    private Vector2Int gridDimensions = new Vector2Int(3,3);
+    private Vector2Int gridDimensions = new Vector2Int(3, 3);
     [SerializeField]
     private List<Image> gridImages = new List<Image>();
     [SerializeField]
     private List<GridTile> gridTiles = new List<GridTile>();
 
-    private GridTile.TileType currentTileType;
+    private int currentPlayerIndex = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        turnManager = GetComponent<TurnManager>();
         CreatGrid();
     }
 
@@ -28,19 +33,24 @@ public class GridManager : MonoBehaviour
         {
             for (int y = 0; y < gridDimensions.y; y++)
             {
-                gridTiles.Add(new GridTile(new Vector3Int(x, y, 0), GridTile.TileType.EMPTY, gridImages[index]));
+                gridTiles.Add(new GridTile(new Vector3Int(x, y, 0), -1, gridImages[index]));
                 index++;
             }
         }
     }
 
-    public void ChangeCurrentType(GridTile.TileType type)
+    public void ChangeCurrentType(int playerIndex)
     {
-        currentTileType = type;
+        currentPlayerIndex = playerIndex;
     }
 
     public void OnButtonPress(int index)
     {
-        gridTiles[index].SetType(currentTileType);
+        // -1 means a tile without an owner.
+        if (gridTiles[index].TileOwner == -1)
+        {
+            gridTiles[index].SetTileOwner(currentPlayerIndex);
+            turnManager.ChangeTurn();
+        }
     }
 }
