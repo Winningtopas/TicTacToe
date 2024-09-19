@@ -14,7 +14,8 @@ public class GridManager : MonoBehaviour
     [SerializeField]
     private List<Image> gridImages = new List<Image>();
     [SerializeField]
-    private List<GridTile> gridTiles = new List<GridTile>();
+    private GridTile[,] gridTiles;
+    //private List<GridTile> gridTiles = new List<GridTile>();
 
     private int currentPlayerIndex = 0;
 
@@ -28,13 +29,44 @@ public class GridManager : MonoBehaviour
     private void CreatGrid()
     {
         int index = 0;
+        gridTiles = new GridTile[gridDimensions.x, gridDimensions.y];
 
         for (int x = 0; x < gridDimensions.x; x++)
         {
             for (int y = 0; y < gridDimensions.y; y++)
             {
-                gridTiles.Add(new GridTile(new Vector3Int(x, y, 0), -1, gridImages[index]));
+                gridTiles[x, y] = new GridTile(new Vector3Int(x, y), -1, gridImages[index]);
+                //gridTiles.Add(new GridTile(new Vector3Int(x, y, 0),);
                 index++;
+                //CheckNeighbourTiles(x,y,0);
+            }
+        }
+    }
+
+    public void CheckNeighbourTiles(int x, int y)
+    {
+        GridTile baseTile = gridTiles[x, y];
+        GridTile targetTile;
+
+        if (baseTile.TileOwner == -1)
+            return;
+
+        if (x > 0 && x < gridDimensions.x)
+        {
+            targetTile = gridTiles[x - 1, y];
+            if (targetTile.TileOwner != -1)
+            {
+                baseTile.AddNeighbour(targetTile);
+                targetTile.AddNeighbour(baseTile);
+            }
+        }
+        if (y > 0 && y < gridDimensions.y)
+        {
+            targetTile = gridTiles[x, y - 1];
+            if (targetTile.TileOwner != -1)
+            {
+                baseTile.AddNeighbour(targetTile);
+                targetTile.AddNeighbour(baseTile);
             }
         }
     }
@@ -47,9 +79,12 @@ public class GridManager : MonoBehaviour
     public void OnButtonPress(int index)
     {
         // -1 means a tile without an owner.
-        if (gridTiles[index].TileOwner == -1)
+        int x = Mathf.FloorToInt(index / gridDimensions.x);
+        int y = index % gridDimensions.y;
+
+        if (gridTiles[x, y].TileOwner == -1)
         {
-            gridTiles[index].SetTileOwner(currentPlayerIndex);
+            gridTiles[x, y].SetTileOwner(currentPlayerIndex);
             turnManager.ChangeTurn();
         }
     }
