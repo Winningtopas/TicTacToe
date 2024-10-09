@@ -9,7 +9,8 @@ public class GridTile
     private Vector3Int position;
     private int tileOwner;
     private Image image;
-    private List<GridTile> neighbourTiles = new List<GridTile>();
+    //private List<GridTile> neighbourTiles = new List<GridTile>();
+    private GridTile[] neighbourTiles = new GridTile[8];
 
     public Vector3Int Position => position;
     public int TileOwner => tileOwner;
@@ -45,8 +46,13 @@ public class GridTile
         this.position = position;
     }
 
-    public void AddNeighbour(GridTile tile)
+    public void AddNeighbour(GridTile tile, int index)
     {
-        neighbourTiles.Add(tile);
+        neighbourTiles[index] = tile;
+    }
+
+    public GridTile[] GetNeighbours()
+    {
+        return neighbourTiles;
     }
 }

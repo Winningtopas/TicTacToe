@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class TurnManager : MonoBehaviour
 {
-    [SerializeField]
-    private int playerAmount = 2;
+    public int playerAmount = 2;
 
     private GridManager gridManager;
     private int playerTurnIndex = 0;

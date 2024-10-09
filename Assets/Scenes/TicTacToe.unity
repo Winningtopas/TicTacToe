@@ -1107,6 +1107,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 869025211}
     m_Modifications:
+    - target: {fileID: 1052106447673245732, guid: f2aa82d5693b1724c919e95211553095, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1052106447673245732, guid: f2aa82d5693b1724c919e95211553095, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1052106447673245732, guid: f2aa82d5693b1724c919e95211553095, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2901090185577641431, guid: f2aa82d5693b1724c919e95211553095, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -1142,6 +1154,10 @@ PrefabInstance:
     - target: {fileID: 5258422113115325355, guid: f2aa82d5693b1724c919e95211553095, type: 3}
       propertyPath: m_Name
       value: GridElement (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5258422113115325355, guid: f2aa82d5693b1724c919e95211553095, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7205416671024300616, guid: f2aa82d5693b1724c919e95211553095, type: 3}
       propertyPath: m_Pivot.x
@@ -1241,6 +1257,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 869025211}
     m_Modifications:
+    - target: {fileID: 1052106447673245732, guid: f2aa82d5693b1724c919e95211553095, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1052106447673245732, guid: f2aa82d5693b1724c919e95211553095, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1052106447673245732, guid: f2aa82d5693b1724c919e95211553095, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2901090185577641431, guid: f2aa82d5693b1724c919e95211553095, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -1564,6 +1592,8 @@ MonoBehaviour:
   - {fileID: 727952859}
   - {fileID: 1510361545}
   - {fileID: 1369272559}
+  matchAmount: 3
+  neighbourMatchTypeAmount: 00000000000000000000000000000000
 --- !u!4 &1568932592
 Transform:
   m_ObjectHideFlags: 0
@@ -1824,6 +1854,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 869025211}
     m_Modifications:
+    - target: {fileID: 1052106447673245732, guid: f2aa82d5693b1724c919e95211553095, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1052106447673245732, guid: f2aa82d5693b1724c919e95211553095, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1052106447673245732, guid: f2aa82d5693b1724c919e95211553095, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2901090185577641431, guid: f2aa82d5693b1724c919e95211553095, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -1855,6 +1897,10 @@ PrefabInstance:
     - target: {fileID: 5258422113115325355, guid: f2aa82d5693b1724c919e95211553095, type: 3}
       propertyPath: m_Name
       value: GridElement
+      objectReference: {fileID: 0}
+    - target: {fileID: 5258422113115325355, guid: f2aa82d5693b1724c919e95211553095, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7205416671024300616, guid: f2aa82d5693b1724c919e95211553095, type: 3}
       propertyPath: m_Pivot.x
